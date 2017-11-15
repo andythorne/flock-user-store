@@ -5,7 +5,8 @@ Storage system for users with oauth2 support, written in Symfony 3.3 with FOSOAu
 ## Getting started
 
 ```bash
-git https://github.com/andythorne/flock-user-store
+git clone https://github.com/andythorne/flock-user-store flock
+cd flock
 
 docker-compose up -d
 ```

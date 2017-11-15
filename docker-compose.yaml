@@ -16,6 +16,7 @@ services:
           - XDEBUG_CONFIG=remote_host=<your-ip>
           - PHP_IDE_CONFIG=serverName=dev_server
           - APPLICATION_ENV=development
+        command: ./docker/start.sh
 
     flock-api-db:
         image: mariadb:10
