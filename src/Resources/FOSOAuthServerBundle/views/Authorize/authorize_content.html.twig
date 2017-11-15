@@ -1,0 +1,30 @@
+
+{% block stylesheets %}
+<style>
+    .grant-form {
+        margin: 25% auto 0;
+        width: 400px;
+        text-align: center;
+    }
+
+    button {
+        cursor: pointer;
+    }
+</style>
+{% endblock stylesheets %}
+
+<div class="grant-form">
+    <h2>The application "{{ client.appName }}" would like to connect to your account</h2>
+
+    {{ form_start(form, {'method': 'POST', 'action': path('fos_oauth_server_authorize'), 'label_attr': {'class': 'fos_oauth_server_authorize'} }) }}
+    <button class="btn" type="submit" name="rejected">{{ 'authorize.reject'|trans({}, 'FOSOAuthServerBundle') }}</button>
+        <button class="btn btn-primary" type="submit" name="accepted">{{ 'authorize.accept'|trans({}, 'FOSOAuthServerBundle') }}</button>
+
+        {{ form_row(form.client_id) }}
+        {{ form_row(form.response_type) }}
+        {{ form_row(form.redirect_uri) }}
+        {{ form_row(form.state) }}
+        {{ form_row(form.scope) }}
+        {{ form_rest(form) }}
+    {{ form_end(form) }}
+</div>

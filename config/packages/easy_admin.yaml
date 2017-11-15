@@ -1,0 +1,42 @@
+easy_admin:
+    site_name: 'Flock'
+
+    design:
+        menu:
+            - { entity: Client, icon: lock, label: Clients }
+            - { entity: User, icon: user, label: Users }
+
+    entities:
+        # List the entity class name you want to manage
+        Client:
+            class: App\Entity\Client
+            form:
+                fields:
+                    - appName
+                    - appDescription
+                    - redirectUris
+            list:
+                fields: ['id', 'appName', 'randomId', 'secret']
+
+        User:
+            class: App\Entity\User
+            show:
+                fields: ['id', 'username', 'email', 'enabled', 'lastLogin']
+            list:
+                fields: ['id', 'username', 'email', 'enabled', 'lastLogin']
+            form:
+                fields:
+                    - username
+                    - email
+                    - enabled
+                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN' } } }
+            edit:
+                fields:
+                    - { property: 'plainPassword', type_options: { required: false} }
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    - { property: 'plainPassword', type_options: { required: true} }
+                form_options: { validation_groups: ['Registration'] }
+
