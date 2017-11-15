@@ -5,7 +5,7 @@ namespace App\Entity;
 use FOS\OAuthServerBundle\Entity\Client as BaseClient;
 
 /**
- * Class Client
+ * Class Client.
  *
  * @author andy@andy-thorne.co.uk
  */
@@ -18,13 +18,12 @@ class Client extends BaseClient
     private $appDescription;
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function __toString()
     {
         return $this->getAppName();
     }
-
 
     /**
      * @return string
@@ -36,9 +35,10 @@ class Client extends BaseClient
 
     /**
      * @param string $appName
+     *
      * @return Client
      */
-    public function setAppName(string $appName): Client
+    public function setAppName(string $appName): self
     {
         $this->appName = $appName;
 
@@ -55,9 +55,10 @@ class Client extends BaseClient
 
     /**
      * @param string $appDescription
+     *
      * @return Client
      */
-    public function setAppDescription(string $appDescription): Client
+    public function setAppDescription(string $appDescription): self
     {
         $this->appDescription = $appDescription;
 

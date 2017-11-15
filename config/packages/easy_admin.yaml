@@ -15,6 +15,7 @@ easy_admin:
                     - appName
                     - appDescription
                     - redirectUris
+                    - { property: 'allowedGrantTypes', type: 'choice', type_options: { multiple: true, choices: { 'authorization_code': 'authorization_code', 'client_credentials': 'client_credentials', 'password': 'password' } } }
             list:
                 fields: ['id', 'appName', 'randomId', 'secret']
 

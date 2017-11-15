@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * Class User
+ * Class User.
  *
  * @author andy@andy-thorne.co.uk
  */

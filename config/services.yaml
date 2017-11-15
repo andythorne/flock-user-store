@@ -32,4 +32,4 @@ services:
         public: false
         arguments:
             - 'mysql:host=%env(DATABASE_HOST)%;port=%env(DATABASE_PORT)%;dbname=%env(DATABASE_NAME)%'
-            - { db_table: sessions, db_username: '%env(DATABASE_USER)%', db_password: '%env(DATABASE_PASSWORD)%' }
+            - { db_table: session, db_username: '%env(DATABASE_USER)%', db_password: '%env(DATABASE_PASSWORD)%' }

@@ -4,3 +4,8 @@ root:
         _controller: FrameworkBundle:Redirect:redirect
         route: fos_user_profile_show
         permanent: true
+
+api_user_get:
+    path: /api/user/{id}
+    defaults:
+        _controller: App\Controller\UserApiController::getUser

@@ -19,6 +19,12 @@ security:
             pattern:    ^/oauth/v2/token
             security:   false
 
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false
+
         main:
             pattern:    ^/
             anonymous:  ~
@@ -35,4 +41,5 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: [ ROLE_ADMIN ] }
+        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
         - { path: ^/, roles: [ ROLE_USER ] }
