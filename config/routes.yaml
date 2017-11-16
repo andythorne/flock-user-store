@@ -6,6 +6,6 @@ root:
         permanent: true
 
 api_user_get:
-    path: /api/user/{id}
+    path: /api/user
     defaults:
         _controller: App\Controller\UserApiController::getUser

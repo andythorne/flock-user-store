@@ -9,6 +9,8 @@
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
 
-        <one-to-many target-entity="App\Entity\AuthCode" mapped-by="user" field="authCodes" />
+        <one-to-many target-entity="App\Entity\AuthCode" mapped-by="user" field="authCodes"/>
+
+        <many-to-many target-entity="App\Entity\Client" field="authenticatedClients"/>
     </entity>
 </doctrine-mapping>

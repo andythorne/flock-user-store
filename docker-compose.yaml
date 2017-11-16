@@ -18,6 +18,8 @@ services:
             - APPLICATION_ENV=development
         depends_on:
             - flock-db
+        networks:
+            - flock
         command: ./docker/start.sh
 
     flock-db:
@@ -28,8 +30,15 @@ services:
             - MYSQL_DATABASE=flock
         volumes:
             - db-data:/var/lib/mysql
+        networks:
+            - flock
         ports:
             - "3306:3306"
 
 volumes:
     db-data:
+
+networks:
+    flock:
+        external:
+            name: flock

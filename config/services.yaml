@@ -33,3 +33,11 @@ services:
         arguments:
             - 'mysql:host=%env(DATABASE_HOST)%;port=%env(DATABASE_PORT)%;dbname=%env(DATABASE_NAME)%'
             - { db_table: session, db_username: '%env(DATABASE_USER)%', db_password: '%env(DATABASE_PASSWORD)%' }
+
+    oauth_event_listener:
+        class:  App\OAuth\EventListener\OAuthEventListener
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+        tags:
+            - { name: kernel.event_listener, event: fos_oauth_server.pre_authorization_process, method: onPreAuthorizationProcess }
+            - { name: kernel.event_listener, event: fos_oauth_server.post_authorization_process, method: onPostAuthorizationProcess }
