@@ -1,6 +1,9 @@
 easy_admin:
     site_name: 'Flock'
 
+    list:
+        actions: ['edit', 'search', 'show', 'new']
+
     design:
         menu:
             - { entity: Client, icon: lock, label: Clients }
@@ -17,7 +20,9 @@ easy_admin:
                     - redirectUris
                     - { property: 'allowedGrantTypes', type: 'choice', type_options: { multiple: true, choices: { 'authorization_code': 'authorization_code', 'client_credentials': 'client_credentials', 'password': 'password' } } }
             list:
-                fields: ['id', 'appName', 'randomId', 'secret']
+                fields: ['id', 'appName', 'appDescription', 'publicId']
+            show:
+                fields: ['id', 'appName', 'appDescription', 'publicId', 'secret', 'redirectUris', 'allowedGrantTypes']
 
         User:
             class: App\Entity\User

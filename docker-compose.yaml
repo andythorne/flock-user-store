@@ -12,9 +12,6 @@ services:
         links:
             - flock-db
         environment:
-            - ENABLE_XDEBUG=1
-            - XDEBUG_CONFIG=remote_host=<your-ip>
-            - PHP_IDE_CONFIG=serverName=dev_server
             - APPLICATION_ENV=development
         depends_on:
             - flock-db
