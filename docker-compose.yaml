@@ -1,33 +1,35 @@
 version: '2'
-services:
 
+services:
     flock:
         image: richarvey/nginx-php-fpm:latest
         container_name: flock
         ports:
-          - "81:80"
+            - "81:80"
         volumes:
-          - .:/var/www/html
-          - ./docker/nginx/app.conf:/etc/nginx/sites-available/default.conf
+            - .:/var/www/html
+            - ./docker/nginx/app.conf:/etc/nginx/sites-available/default.conf
         links:
-          - flock-db
+            - flock-db
         environment:
-          - ENABLE_XDEBUG=1
-          - XDEBUG_CONFIG=remote_host=<your-ip>
-          - PHP_IDE_CONFIG=serverName=dev_server
-          - APPLICATION_ENV=development
+            - ENABLE_XDEBUG=1
+            - XDEBUG_CONFIG=remote_host=<your-ip>
+            - PHP_IDE_CONFIG=serverName=dev_server
+            - APPLICATION_ENV=development
+        depends_on:
+            - flock-db
         command: ./docker/start.sh
 
     flock-db:
         image: mariadb:10
         container_name: flock-db
         environment:
-          - MYSQL_ROOT_PASSWORD=password
-          - MYSQL_DATABASE=flock
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_DATABASE=flock
         volumes:
-          - db-data:/var/lib/mysql
+            - db-data:/var/lib/mysql
         ports:
-          - "3306:3306"
+            - "3306:3306"
 
 volumes:
     db-data:
