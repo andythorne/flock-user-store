@@ -3,34 +3,40 @@
 .page {
     position: relative;
     z-index: 1;
-    width: 360px;
+    width: 100%;
     padding: 45px;
     margin: 20px auto 100px;
     background: #FFFFFF;
     max-width: 360px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    font-size: 14px;
 }
 .form {
     text-align: center;
 }
-.form input:not([type="checkbox"]):not([type="submit"]) {
+.form .form-group input {
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #f2f2f2;
     width: 100%;
     border: 0;
-    margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
-    font-size: 14px;
 }
-.form label {
+
+.form .form-group label {
     display: block;
     text-align: left;
     font-size: 14px;
     padding: 0;
     margin: 5px 0 2px;
 }
+
+
+.form label.inline {
+    display: block;
+}
+
 .form button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
@@ -54,7 +60,7 @@
     font-size: 12px;
 }
 .form .message a {
-    color: #4CAF50;
+    color: #0591eb;
     text-decoration: none;
 }
 .form .register-form {
@@ -63,7 +69,7 @@
 .container {
     position: relative;
     z-index: 1;
-    max-width: 300px;
+    width: 100%;
     margin: 0 auto;
 }
 .container:before, .container:after {
@@ -94,12 +100,19 @@
     color: #EF3B3A;
 }
 body {
-    background: #76b852; /* fallback for old browsers */
-    background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-    background: -moz-linear-gradient(right, #76b852, #8DC26F);
-    background: -o-linear-gradient(right, #76b852, #8DC26F);
-    background: linear-gradient(to left, #76b852, #8DC26F);
+    background: #3db0f9;
+    background: -moz-radial-gradient(center, ellipse cover, #65BFFA 0%, #0591eb 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, #65BFFA 0%,#0591eb 100%);
+    background: radial-gradient(ellipse at center, #65BFFA 0%,#0591eb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3db0f9', endColorstr='#0591eb',GradientType=1 );
+
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@media only screen and (min-width : 480px) {
+    .container {
+        width: 400px;
+    }
 }
