@@ -30,7 +30,7 @@ class AdminUserController extends AdminController
     /**
      * {@inheritdoc}
      */
-    public function preUpdateEntity($entity)
+    protected function preUpdateEntity($entity)
     {
         $this->get('fos_user.user_manager')->updateUser($entity, false);
     }

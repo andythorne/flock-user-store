@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\OAuth\EventListener;
 
 use App\Entity\User;
@@ -8,7 +7,7 @@ use Doctrine\ORM\EntityManager;
 use FOS\OAuthServerBundle\Event\OAuthEvent;
 
 /**
- * Class OAuthEventListener
+ * Class OAuthEventListener.
  *
  * @author andy@andy-thorne.co.uk
  */
@@ -19,6 +18,7 @@ class OAuthEventListener
 
     /**
      * OAuthEventListener constructor.
+     *
      * @param EntityManager $em
      */
     public function __construct(EntityManager $em)
@@ -29,9 +29,9 @@ class OAuthEventListener
     public function onPreAuthorizationProcess(OAuthEvent $event)
     {
         $user = $event->getUser();
-        if($user instanceof User) {
+        if ($user instanceof User) {
             $clients = $user->getAuthenticatedClients();
-            if($clients->contains($event->getClient())){
+            if ($clients->contains($event->getClient())) {
                 $event->setAuthorizedClient(true);
             }
         }
@@ -42,7 +42,7 @@ class OAuthEventListener
         if ($event->isAuthorizedClient()) {
             if (null !== $client = $event->getClient()) {
                 $user = $event->getUser();
-                if($user instanceof User) {
+                if ($user instanceof User) {
                     $user->addAuthenticatedClient($client);
                     $this->em->persist($user);
                     $this->em->flush($user);

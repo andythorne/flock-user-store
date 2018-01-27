@@ -1,6 +1,8 @@
 # Flock User Store
 
-Storage system for users with oauth2 support, written in [Symfony 3.3](http://symfony.com/) with [FOSOAuth](https://github.com/FriendsOfSymfony/FOSOAuthServerBundle), 
+[![Packagist](https://img.shields.io/packagist/dt/andythorne/flock.svg?style=flat-square)](https://packagist.org/packages/andythorne/flock)
+
+Storage system for users with oauth2 support, written in [Symfony >= 3.4/4.0](http://symfony.com/) with [FOSOAuth](https://github.com/FriendsOfSymfony/FOSOAuthServerBundle), 
 [FOSUser](https://github.com/FriendsOfSymfony/FOSUserBundle) and [EasyAdmin](https://github.com/javiereguiluz/EasyAdminBundle).
 
 ## Installation
