@@ -1,13 +1,21 @@
 {
     "name": "andythorne/flock",
+    "description": "Symfony user storage system with oauth2 support",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andy Thorne",
+            "email": "andy@andy-thorne.co.uk"
+        }
+    ],
     "require": {
         "php": "^7.0.8",
-        "friendsofsymfony/user-bundle": "^2.0",
-        "friendsofsymfony/oauth-server-bundle": "^1.5",
+        "friendsofsymfony/oauth-server-bundle": "2.0.x-dev",
+        "friendsofsymfony/user-bundle": "2.1.x-dev",
         "javiereguiluz/easyadmin-bundle": "^1.17",
         "ramsey/uuid-doctrine": "^1.4",
+        "sensiolabs/security-checker": "^4.1",
         "symfony/asset": "^3.3",
         "symfony/console": "^3.3",
         "symfony/framework-bundle": "^3.3",
@@ -40,7 +48,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -50,9 +59,7 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*",
-        "symfony/twig-bundle": "<3.3",
-        "symfony/debug": "<3.3"
+        "symfony/symfony": "*"
     },
     "extra": {
         "symfony": {

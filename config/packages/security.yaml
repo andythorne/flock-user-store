@@ -33,6 +33,11 @@ security:
                 check_path: /login_check
                 login_path: /login
                 remember_me: true
+            remember_me:
+                secret:   "%env(APP_SECRET)%"
+                lifetime: 604800 # 1 week in seconds
+                path:     /
+                user_provider: fos_userbundle
             logout: ~
 
     access_control:

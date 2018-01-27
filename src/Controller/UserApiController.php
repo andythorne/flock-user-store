@@ -5,8 +5,8 @@ namespace App\Controller;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Class UserApiController.
@@ -15,20 +15,20 @@ use Symfony\Component\Serializer\Serializer;
  */
 class UserApiController
 {
-    /** @var Serializer */
+    /** @var SerializerInterface */
     private $serializer;
     /**
-     * @var TokenStorage
+     * @var TokenStorageInterface
      */
     private $tokenStorage;
 
     /**
      * UserApiController constructor.
      *
-     * @param Serializer $serializer
-     * @param TokenStorage $tokenStorage
+     * @param SerializerInterface   $serializer
+     * @param TokenStorageInterface $tokenStorage
      */
-    public function __construct(Serializer $serializer, TokenStorage $tokenStorage)
+    public function __construct(SerializerInterface $serializer, TokenStorageInterface $tokenStorage)
     {
         $this->serializer = $serializer;
         $this->tokenStorage = $tokenStorage;

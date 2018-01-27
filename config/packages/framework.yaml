@@ -1,18 +1,20 @@
 framework:
     secret: '%env(APP_SECRET)%'
     default_locale: en
+    translator: ~
+    serializer:
+        enable_annotations: false
+        name_converter: 'serializer.name_converter.camel_case_to_snake_case'
+    validation: ~
     csrf_protection: ~
     http_method_override: true
     #trusted_hosts: ~
     # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
     session:
         handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
-
-    templating:
-        engines: ['twig']
-    assets: ~
     #esi: ~
     fragments: ~
     php_errors:
         log: true
-    serializer: ~
+    templating:
+        engines: ['twig']
